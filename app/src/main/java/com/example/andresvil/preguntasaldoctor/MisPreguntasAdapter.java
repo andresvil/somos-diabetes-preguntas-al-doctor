@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -17,14 +16,14 @@ import java.util.Locale;
 /**
  * Created by andresvil on 3/14/16.
  */
-public class PreguntasAdapter extends ArrayAdapter {
+public class MisPreguntasAdapter extends ArrayAdapter {
     private List myList = new ArrayList();
 
-    public PreguntasAdapter(Context context, int resource) {
+    public MisPreguntasAdapter(Context context, int resource) {
         super(context, resource);
     }
 
-    public void add(FAQ object) {
+    public void add(Pregunta object) {
         myList.add(object);
         super.add(object);
     }
@@ -32,7 +31,7 @@ public class PreguntasAdapter extends ArrayAdapter {
     static class ImgHolder
     {
         TextView PREGUNTA;
-        TextView RESPUESTA;
+        TextView DOCTOR;
     }
 
     @Override
@@ -52,10 +51,10 @@ public class PreguntasAdapter extends ArrayAdapter {
 
         if(row == null) {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.faq_layout, parent, false);
+            row = inflater.inflate(R.layout.mis_preguntas_layout, parent, false);
             holder = new ImgHolder();
-            holder.PREGUNTA = (TextView) row.findViewById(R.id.pregunta);
-            holder.RESPUESTA = (TextView) row.findViewById(R.id.respuesta);
+            holder.PREGUNTA = (TextView) row.findViewById(R.id.mi_pregunta);
+            holder.DOCTOR = (TextView) row.findViewById(R.id.doctor);
 
             row.setTag(holder);
         }
@@ -65,17 +64,17 @@ public class PreguntasAdapter extends ArrayAdapter {
             holder = (ImgHolder) row.getTag();
         }
 
-        FAQ f = (FAQ) getItem(position);
+        Pregunta p = (Pregunta) getItem(position);
 
         // Set textviews for Pregunta & Respuesta
-        holder.PREGUNTA.setText(f.getPregunta());
-        holder.RESPUESTA.setText(f.getRespuesta());
+        holder.PREGUNTA.setText(p.getPregunta());
+        holder.DOCTOR.setText(p.getDoctor());
 
         // Load font and set TextViews to that font
         AssetManager am = getContext().getApplicationContext().getAssets();
         Typeface myFont = Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "AvenirLTStd-Roman_0.otf"));
         holder.PREGUNTA.setTypeface(myFont);
-        holder.RESPUESTA.setTypeface(myFont);
+        holder.DOCTOR.setTypeface(myFont);
 
         return row;
     }

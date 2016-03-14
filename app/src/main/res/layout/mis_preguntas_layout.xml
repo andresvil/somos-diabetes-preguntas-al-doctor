@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:focusableInTouchMode="true"
+    android:background="#EAEAEA"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/mi_pregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:text="Qué es la diabetes?"
+        android:textColor="#111010" />
+
+    <TextView
+        android:id="@+id/doctor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="#969696"
+        android:textSize="12sp"
+        android:text="Nutriólogo"
+        />
+
+
+</LinearLayout>
