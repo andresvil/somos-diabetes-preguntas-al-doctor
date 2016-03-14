@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="0dp"
+    android:layout_marginBottom="0dp"
+    android:focusableInTouchMode="true"
+    android:background="#0064A8"
+    android:layout_gravity="center_horizontal"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:paddingLeft="30dp"
+        android:layout_marginLeft="30dp"
+        android:src="@drawable/agenda" />
+
+    <TextView
+        android:id="@+id/menu_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingLeft="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:text="Modulo 1" />
+
+</LinearLayout>
