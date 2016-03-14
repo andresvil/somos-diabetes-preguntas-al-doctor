@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_marginTop="0dp"
-    android:layout_marginBottom="0dp"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     android:focusableInTouchMode="true"
-    android:background="#0064A8"
-    android:layout_gravity="center_horizontal"
-    android:paddingTop="5dp"
-    android:paddingBottom="5dp">
-
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="55dp"
-        android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:paddingLeft="30dp"
-        android:layout_marginLeft="30dp"
-        android:src="@drawable/agenda" />
+    android:background="#EAEAEA"
+    android:padding="5dp">
 
     <TextView
-        android:id="@+id/menu_item"
+        android:id="@+id/pregunta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingLeft="20dp"
-        android:textColor="@android:color/white"
-        android:textSize="20sp"
-        android:text="Modulo 1" />
+        android:textSize="15sp"
+        android:text="Qué es la diabetes?"
+        android:textColor="#111010" />
+
+    <TextView
+        android:id="@+id/respuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textColor="#111010"
+        android:textSize="12sp"
+        android:text="La diabetes es una enfermedad que ocurre cuando el organismo es incapaz de generar insulina o utilizarla correctamente. El páncreas produce la insulina para regular el uso de la glucosa (azúcar) en el organismo."
+        />
+
 
 </LinearLayout>

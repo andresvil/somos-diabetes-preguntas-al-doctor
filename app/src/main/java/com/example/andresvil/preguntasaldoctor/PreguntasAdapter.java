@@ -31,8 +31,8 @@ public class PreguntasAdapter extends ArrayAdapter {
 
     static class ImgHolder
     {
-        ImageView ICON;
-        TextView MENUITEM;
+        TextView PREGUNTA;
+        TextView RESPUESTA;
     }
 
     @Override
@@ -52,10 +52,10 @@ public class PreguntasAdapter extends ArrayAdapter {
 
         if(row == null) {
             LayoutInflater inflater = (LayoutInflater) this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.row_layout, parent, false);
+            row = inflater.inflate(R.layout.faq_layout, parent, false);
             holder = new ImgHolder();
-            holder.ICON = (ImageView) row.findViewById(R.id.icon);
-            holder.MENUITEM = (TextView) row.findViewById(R.id.menu_item);
+            holder.PREGUNTA = (TextView) row.findViewById(R.id.pregunta);
+            holder.RESPUESTA = (TextView) row.findViewById(R.id.respuesta);
 
             row.setTag(holder);
         }
@@ -65,16 +65,17 @@ public class PreguntasAdapter extends ArrayAdapter {
             holder = (ImgHolder) row.getTag();
         }
 
-        MenuItems mi = (MenuItems) getItem(position);
+        Pregunta p = (Pregunta) getItem(position);
 
         // Set text and image
-        holder.ICON.setImageResource(mi.getIcon_rsc());
-        holder.MENUITEM.setText(mi.getMenuItem());
+        holder.PREGUNTA.setText(p.getPregunta());
+        holder.RESPUESTA.setText(p.getRespuesta());
 
         // Load font and set TextViews to that font
         AssetManager am = getContext().getApplicationContext().getAssets();
         Typeface myFont = Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "AvenirLTStd-Roman_0.otf"));
-        holder.MENUITEM.setTypeface(myFont);
+        holder.PREGUNTA.setTypeface(myFont);
+        holder.RESPUESTA.setTypeface(myFont);
 
         return row;
     }
