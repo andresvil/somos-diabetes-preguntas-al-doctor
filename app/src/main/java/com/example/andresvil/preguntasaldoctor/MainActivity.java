@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     ListView misPreguntasList;
     FloatingActionButton fab;
+    Button faqButton;
+    Button misPreguntasButton;
 
     String[] faqs = {"¿Qué es la diabetes?", "¿Existen factores de riesgo de diabetes?",
         "¿Existen factores de riesgo de diabetes?", "¿Cuántos tipos de diabetes hay?"};
@@ -55,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
         // Remove default title from toolbar
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Get 2 buttons
+        faqButton = (Button) findViewById(R.id.buttonFAQ);
+        misPreguntasButton = (Button) findViewById(R.id.buttonMisPreguntas);
 
         // Populate FAQ ListView
         listView = (ListView) findViewById(R.id.listView);
@@ -119,19 +126,34 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /*// Show Mis Preguntas ListView, Add button and hide FAQ
+    // Show Mis Preguntas ListView, Add button and hide FAQ
     public void showMisPreguntas(View view)
     {
+        // Switch listViews
         listView.setVisibility(View.INVISIBLE);
         fab.setVisibility(View.VISIBLE);
         misPreguntasList.setVisibility(View.VISIBLE);
+
+        // Change buttons
+        faqButton.setEnabled(true);
+        faqButton.setAlpha((float) 0.5);
+        misPreguntasButton.setEnabled(false);
+        misPreguntasButton.setAlpha(1);
+
     }
 
-    // Show Mis Preguntas ListView, Add button and hide FAQ
+    // Show FAQ ListView, Add button and hide FAQ
     public void showFAQ(View view)
     {
+        // Switch listViews
         fab.setVisibility(View.INVISIBLE);
         misPreguntasList.setVisibility(View.INVISIBLE);
         listView.setVisibility(View.VISIBLE);
-    }*/
+
+        // Change buttons
+        faqButton.setEnabled(false);
+        faqButton.setAlpha(1);
+        misPreguntasButton.setEnabled(true);
+        misPreguntasButton.setAlpha((float) 0.5);
+    }
 }

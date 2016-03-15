@@ -43,6 +43,6 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/plus"
         app:backgroundTint="#CA3D3E"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
 </android.support.design.widget.CoordinatorLayout>
