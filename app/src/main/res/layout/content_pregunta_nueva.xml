@@ -52,5 +52,6 @@
         android:layout_alignStart="@+id/eligeDoctorText"
         android:layout_alignRight="@+id/eligeDoctorText"
         android:layout_alignEnd="@+id/eligeDoctorText"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:layout_marginTop="10dp"/>
 </RelativeLayout>

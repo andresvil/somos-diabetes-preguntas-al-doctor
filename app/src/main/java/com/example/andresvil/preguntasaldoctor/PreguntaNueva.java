@@ -7,6 +7,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +31,16 @@ public class PreguntaNueva extends AppCompatActivity implements AdapterView.OnIt
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Enable back button
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // Access toolbar text
+        TextView toolbarText = (TextView) toolbar.findViewById(R.id.toolbar_title);
+
+        // Remove default title from toolbar
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        // Get TextView and Text Field
         TextView eligeDoctor = (TextView) findViewById(R.id.eligeDoctorText);
         EditText escribaTuPregunta = (EditText) findViewById(R.id.preguntaField);
 
@@ -37,27 +50,31 @@ public class PreguntaNueva extends AppCompatActivity implements AdapterView.OnIt
         // Spinner click listener
         spinner.setOnItemSelectedListener(this);
 
-        // Spinner DropDown Elements
+        /*// Spinner DropDown Elements
         List<String> doctores = new ArrayList<String>();
         doctores.add("Nutriólogo");
         doctores.add("Endocrinólogo");
         doctores.add("Neurólogo");
-        doctores.add("Cardiólogo");
+        doctores.add("Cardiólogo");*/
+
+        // Spinner DropDown Elements 2
+        String[] doctores = {"Nutriólogo", "Endocrinólogo", "Neurólogo", "Cardiólogo"};
 
         // Create adapter for spinner
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, doctores);
+        MySpinnerAdapter mySpinnerAdapter = new MySpinnerAdapter(this, doctores);
 
-        // Dropdown layout style
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        /*// Dropdown layout style
+        mySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);*/
 
         // Attach adapter to spinner
-        spinner.setAdapter(arrayAdapter);
+        spinner.setAdapter(mySpinnerAdapter);
 
         // Load font and set TextViews to that font
         AssetManager am = this.getApplicationContext().getAssets();
         Typeface myFont = Typeface.createFromAsset(am, String.format(Locale.US, "fonts/%s", "AvenirLTStd-Roman_0.otf"));
         eligeDoctor.setTypeface(myFont);
         escribaTuPregunta.setTypeface(myFont);
+        toolbarText.setTypeface(myFont);
 
     }
 
@@ -70,5 +87,26 @@ public class PreguntaNueva extends AppCompatActivity implements AdapterView.OnIt
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    /*@Override
+    public boolean onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_pregunta_nueva, menu);
+    }*/
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.guardar_pregunta) {
+            Toast.makeText(getApplicationContext(), "Pregunta Guardada!", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
